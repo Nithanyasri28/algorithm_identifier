@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Settings</title>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='css/settings.css') }}">
+
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <!-- Sidebar -->
+
+    <div class="sidebar">
+
+        <div class="logo">
+            <h2><i class="fas fa-brain"></i> AI System</h2>
+        </div>
+
+        <ul class="menu">
+
+            <a href="/dashboard">
+                <li><i class="fas fa-home"></i> Dashboard</li>
+            </a>
+
+            <a href="/settings">
+                <li class="active"><i class="fas fa-cog"></i> Settings</li>
+            </a>
+
+        </ul>
+
+    </div>
+
+    <!-- Main -->
+
+    <div class="main-content">
+
+        <div class="hero">
+
+            <h1>⚙ Application Settings</h1>
+
+            <p>Customize your AI Recommendation System</p>
+
+        </div>
+
+        <!-- Appearance -->
+
+        <div class="card">
+
+            <h2>🌙 Appearance</h2>
+
+            <div class="setting">
+
+                <span>Dark Mode</span>
+
+                <label class="switch">
+
+                    <input type="checkbox" id="themeToggle">
+
+                    <span class="slider"></span>
+
+                </label>
+
+            </div>
+
+            <div class="setting">
+
+                <span>Theme Color</span>
+
+                <select id="themeColor">
+
+                    <option value="blue">Blue</option>
+
+                    <option value="green">Green</option>
+
+                    <option value="purple">Purple</option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+        <!-- Report -->
+
+        <div class="card">
+
+            <h2>📄 Report Settings</h2>
+
+            <label><input type="checkbox" checked> Include Dataset Summary</label><br><br>
+
+            <label><input type="checkbox" checked> Include Accuracy Table</label><br><br>
+
+            <label><input type="checkbox" checked> Include AI Recommendation</label><br><br>
+
+            <label><input type="checkbox" checked> Include Conclusion</label>
+
+        </div>
+
+        <!-- AI -->
+
+        <div class="card">
+
+            <h2>🤖 AI Settings</h2>
+
+            <label><input type="checkbox" checked> Decision Tree</label><br><br>
+
+            <label><input type="checkbox" checked> Random Forest</label><br><br>
+
+            <label><input type="checkbox" checked> KNN</label><br><br>
+
+            <label><input type="checkbox" checked> SVM</label>
+
+        </div>
+
+        <!-- About -->
+
+        <div class="card">
+
+            <h2>ℹ About Project</h2>
+
+            <p><b>Project</b></p>
+
+            <p>Identification of Suitable Algorithm for Given Dataset using AI/ML Technique</p>
+
+            <br>
+
+            <p><b>College</b></p>
+
+            <p>V.S.B Engineering College, Karur</p>
+
+            <br>
+
+            <p><b>Department</b></p>
+
+            <p>Computer Science and Engineering</p>
+
+            <br>
+
+            <p><b>Version</b></p>
+
+            <p>1.0</p>
+
+        </div>
+
+        <!-- Buttons -->
+
+        <div class="buttons">
+
+            <button id="saveBtn">
+
+                <i class="fas fa-save"></i>
+
+                Save Settings
+
+            </button>
+
+            <a href="/dashboard">
+
+                <button>
+
+                    <i class="fas fa-arrow-left"></i>
+
+                    Back to Dashboard
+
+                </button>
+
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+const toggle=document.getElementById("themeToggle");
+
+if(localStorage.getItem("theme")=="light"){
+
+    document.body.classList.add("light");
+
+    toggle.checked=true;
+
+}
+
+toggle.addEventListener("change",function(){
+
+    if(this.checked){
+
+        document.body.classList.add("light");
+
+        localStorage.setItem("theme","light");
+
+    }
+
+    else{
+
+        document.body.classList.remove("light");
+
+        localStorage.setItem("theme","dark");
+
+    }
+
+});
+
+document.getElementById("saveBtn").onclick=function(){
+
+    alert("Settings Saved Successfully!");
+
+}
+
+</script>
+
+<script>
+// Theme Color
+
+const themeColor = document.getElementById("themeColor");
+
+// Load saved color
+const savedColor = localStorage.getItem("themeColor");
+
+if(savedColor){
+    document.documentElement.style.setProperty(
+        "--primary-color",
+        savedColor
+    );
+    themeColor.value = savedColor;
+}
+
+themeColor.addEventListener("change", function(){
+
+    let color = "#2563eb";
+
+    if(this.value=="blue"){
+        color="#2563eb";
+    }
+
+    else if(this.value=="green"){
+        color="#16a34a";
+    }
+
+    else if(this.value=="purple"){
+        color="#9333ea";
+    }
+
+    document.documentElement.style.setProperty(
+        "--primary-color",
+        color
+    );
+
+    localStorage.setItem("themeColor",color);
+
+});
+
+document.getElementById("saveBtn").onclick=function(){
+    alert("Settings Saved Successfully!");
+}
+</script>
+
+</body>
+
+</html>

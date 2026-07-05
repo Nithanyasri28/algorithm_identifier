@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Analysis Report</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='css/result.css') }}">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+
+<body>
+
+<!-- Theme Button -->
+<button id="themeToggle" class="theme-toggle">
+    🌙
+</button>
+
+<div class="dashboard">
+
+<!-- ================= SIDEBAR ================= -->
+
+<div class="sidebar">
+
+<div class="logo">
+<h2><i class="fas fa-brain"></i> AI System</h2>
+</div>
+
+<ul class="menu">
+
+<li>
+    <a href="/dashboard">
+        <i class="fas fa-home"></i> Dashboard
+    </a>
+</li>
+
+<li class="active">
+<i class="fas fa-chart-bar"></i> Results
+</li>
+
+<li>
+<a href="#recommendation">
+<i class="fas fa-robot"></i> Recommendation
+</a>
+</li>
+
+<li>
+<a href="/report">
+<i class="fas fa-file-pdf"></i> Report
+</a>
+</li>
+
+</ul>
+
+</div>
+
+<!-- ================= MAIN ================= -->
+
+<div class="main-content">
+
+<div class="hero">
+
+<h1>📊 AI Analysis Report</h1>
+
+<p>
+Comparison of Machine Learning Algorithms
+</p>
+
+</div>
+
+<!-- KPI -->
+
+<div class="stats-grid">
+
+<div class="stat-card">
+<h3>Rows</h3>
+<h1>{{ rows }}</h1>
+</div>
+
+<div class="stat-card">
+<h3>Columns</h3>
+<h1>{{ cols }}</h1>
+</div>
+
+<div class="stat-card">
+<h3>Missing Values</h3>
+<h1>{{ missing }}</h1>
+</div>
+
+<div class="stat-card">
+<h3>Best Model</h3>
+<h2>{{ best_algorithm }}</h2>
+</div>
+
+</div>
+
+<!-- CHART -->
+
+<div class="card">
+
+<h2>📈 Accuracy Comparison</h2>
+
+<canvas id="accuracyChart"></canvas>
+
+</div>
+
+<!-- RANKING -->
+
+<div class="card">
+
+<h2>🏆 Algorithm Ranking</h2>
+
+<table>
+
+<tr>
+<th>Rank</th>
+<th>Algorithm</th>
+<th>Accuracy</th>
+</tr>
+
+{% for algo, acc in ranked_results %}
+
+<tr>
+
+<td>{{ loop.index }}</td>
+
+<td>{{ algo }}</td>
+
+<td>{{ acc }}%</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+</div>
+
+<!-- RECOMMENDATION -->
+
+<div class="recommendation" id="recommendation">
+
+<h2>🤖 AI Recommendation</h2>
+
+<h1>{{ best_algorithm }}</h1>
+
+<p>{{ reason }}</p>
+
+</div>
+
+<!-- PERFORMANCE -->
+
+<div class="performance-grid">
+
+{% for algo, acc in results.items() %}
+
+<div class="performance-card">
+
+<h3>{{ algo }}</h3>
+
+<h1>{{ acc }}%</h1>
+
+{% if acc >= 90 %}
+
+<span class="status best">
+Excellent
+</span>
+
+{% elif acc >= 80 %}
+
+<span class="status good">
+Good
+</span>
+
+{% else %}
+
+<span class="status average">
+Average
+</span>
+
+{% endif %}
+
+</div>
+
+{% endfor %}
+
+</div>
+
+<!-- BUTTONS -->
+
+<div class="buttons">
+
+<a href="/dashboard">
+
+<button>
+
+<i class="fas fa-upload"></i>
+
+Upload New Dataset
+
+</button>
+
+</a>
+
+<a href="/download_report">
+
+<button>
+
+<i class="fas fa-file-pdf"></i>
+
+Download PDF Report
+
+</button>
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- ================= CHART ================= -->
+
+<script>
+
+const ctx = document.getElementById('accuracyChart');
+
+new Chart(ctx,{
+
+type:'bar',
+
+data:{
+
+labels:[
+{% for algo in results.keys() %}
+'{{ algo }}',
+{% endfor %}
+],
+
+datasets:[{
+
+label:'Accuracy (%)',
+
+data:[
+{% for acc in results.values() %}
+{{ acc }},
+{% endfor %}
+],
+
+backgroundColor:[
+'#4f46e5',
+'#2563eb',
+'#06b6d4',
+'#22c55e'
+],
+
+borderRadius:10
+
+}]
+
+},
+
+options:{
+
+responsive:true,
+
+plugins:{
+legend:{
+display:false
+}
+},
+
+scales:{
+y:{
+beginAtZero:true,
+max:100
+}
+}
+
+}
+
+});
+
+</script>
+
+<!-- THEME -->
+
+<script>
+
+const toggle=document.getElementById("themeToggle");
+
+// Apply saved theme
+if(localStorage.getItem("theme")=="light"){
+document.body.classList.add("light");
+toggle.innerHTML="☀️";
+}
+else{
+toggle.innerHTML="🌙";
+}
+
+toggle.onclick=function(){
+
+document.body.classList.toggle("light");
+
+if(document.body.classList.contains("light")){
+
+localStorage.setItem("theme","light");
+
+toggle.innerHTML="☀️";
+
+}
+
+else{
+
+localStorage.setItem("theme","dark");
+
+toggle.innerHTML="🌙";
+
+}
+
+};
+
+</script>
+
+<!-- APPLY THEME COLOR -->
+
+<script>
+
+const savedColor=localStorage.getItem("themeColor");
+
+if(savedColor){
+
+document.documentElement.style.setProperty("--primary-color",savedColor);
+
+}
+
+</script>
+
+</body>
+
+</html>

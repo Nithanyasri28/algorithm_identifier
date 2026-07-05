@@ -1,0 +1,363 @@
+/* ===========================
+   GLOBAL
+=========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+:root{
+    --primary-color:#2563eb;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#eef2f7;
+    color:#333;
+    padding:40px;
+}
+
+/* ===========================
+   REPORT CONTAINER
+=========================== */
+
+.report-container{
+
+    max-width:950px;
+    margin:auto;
+
+    background:#fff;
+
+    border-radius:15px;
+
+    padding:40px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.15);
+
+}
+
+/* ===========================
+   HEADER
+=========================== */
+
+.header{
+
+    text-align:center;
+
+    padding-bottom:20px;
+
+    border-bottom:3px solid var(--primary-color);
+
+    margin-bottom:35px;
+
+}
+
+.header h1{
+
+    color:var(--primary-color);
+
+    font-size:34px;
+
+    margin-bottom:10px;
+
+}
+
+.header p{
+
+    color:#666;
+
+    font-size:17px;
+
+}
+
+/* ===========================
+   SECTION
+=========================== */
+
+.section{
+
+    margin-top:35px;
+
+}
+
+.section h2{
+
+    color:var(--primary-color);
+
+    border-left:6px solid var(--primary-color);
+
+    padding-left:12px;
+
+    margin-bottom:20px;
+
+}
+
+/* ===========================
+   DATASET INFO
+=========================== */
+
+.info{
+
+    line-height:2;
+
+    font-size:17px;
+
+}
+
+/* ===========================
+   TABLE
+=========================== */
+
+table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    margin-top:15px;
+
+}
+
+table th{
+
+    background:var(--primary-color);
+
+    color:white;
+
+    padding:14px;
+
+}
+
+table td{
+
+    border:1px solid #ddd;
+
+    padding:12px;
+
+    text-align:center;
+
+}
+
+table tr:nth-child(even){
+
+    background:#f8fafc;
+
+}
+
+table tr:hover{
+
+    background:#e8f1ff;
+
+}
+
+/* ===========================
+   AI RECOMMENDATION
+=========================== */
+
+.highlight{
+
+    background:#ecfdf5;
+
+    border-left:6px solid #22c55e;
+
+    padding:25px;
+
+    border-radius:10px;
+
+}
+
+.highlight h3{
+
+    color:#15803d;
+
+    margin-bottom:10px;
+
+}
+
+/* ===========================
+   INSIGHTS
+=========================== */
+
+.insights{
+
+    margin-left:20px;
+
+    margin-top:15px;
+
+}
+
+.insights li{
+
+    margin-bottom:12px;
+
+    line-height:1.8;
+
+}
+
+/* ===========================
+   CONCLUSION
+=========================== */
+
+.conclusion{
+
+    text-align:justify;
+
+    line-height:1.9;
+
+    margin-top:15px;
+
+}
+
+/* ===========================
+   BUTTONS
+=========================== */
+
+.buttons{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:20px;
+
+    margin-top:40px;
+
+    flex-wrap:wrap;
+
+}
+
+.buttons button{
+
+    padding:14px 28px;
+
+    border:none;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    color:white;
+
+    font-size:16px;
+
+    transition:.3s;
+
+}
+
+.download{
+
+    background:var(--primary-color);
+
+}
+
+.download:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:0 6px 15px rgba(0,0,0,.2);
+
+}
+
+.back{
+
+    background:#6b7280;
+
+}
+
+.back:hover{
+
+    background:#4b5563;
+
+    transform:translateY(-3px);
+
+}
+
+/* ===========================
+   FOOTER
+=========================== */
+
+.footer{
+
+    margin-top:45px;
+
+    text-align:center;
+
+    color:#777;
+
+    font-size:15px;
+
+}
+
+/* ===========================
+   DARK MODE
+=========================== */
+
+body.light{
+
+    background:#f3f4f6;
+
+    color:#111827;
+
+}
+
+body.light .report-container{
+
+    background:white;
+
+}
+
+body.light table td{
+
+    color:#111827;
+
+}
+
+/* ===========================
+   MOBILE
+=========================== */
+
+@media(max-width:768px){
+
+body{
+
+    padding:15px;
+
+}
+
+.report-container{
+
+    padding:25px;
+
+}
+
+.header h1{
+
+    font-size:26px;
+
+}
+
+.buttons{
+
+    flex-direction:column;
+
+}
+
+.buttons button{
+
+    width:100%;
+
+}
+
+table{
+
+    font-size:14px;
+
+}
+
+}

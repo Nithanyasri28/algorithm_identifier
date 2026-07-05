@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Dashboard</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/dashboard.css') }}">
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <button id="themeToggle" class="theme-toggle">
+    🌙
+</button>
+
+</head>
+
+<body>
+
+<div class="dashboard" id="upload">
+
+
+    <!-- ================= SIDEBAR ================= -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+            <h2><i class="fas fa-brain"></i> AI System</h2>
+        </div>
+
+        <ul class="menu">
+
+    <li>
+        <a href="/">
+            <i class="fas fa-house"></i>
+            Home
+        </a>
+    </li>
+
+    <li class="active">
+        <a href="/dashboard">
+            <i class="fas fa-table-columns"></i>
+            Dashboard
+        </a>
+    </li>
+
+    <li>
+        <a href="#upload">
+            <i class="fas fa-upload"></i>
+            Upload Dataset
+        </a>
+    </li>
+
+    <li>
+        <a href="/settings">
+            <i class="fas fa-cog"></i>
+            Settings
+        </a>
+    </li>
+
+</ul>
+
+    </aside>
+
+    <!-- ================= MAIN CONTENT ================= -->
+
+    <main class="main-content">
+
+        <div class="hero-card">
+
+            <h1>🤖 AI Algorithm Recommendation Dashboard</h1>
+
+            <p class="subtitle">
+
+                Upload your dataset and let Artificial Intelligence
+                compare Machine Learning algorithms automatically.
+
+            </p>
+
+        </div>
+
+        <!-- ================= Upload Dataset ================= -->
+<form action="/upload" method="POST" enctype="multipart/form-data">
+
+<div class="upload-card" id="upload">
+
+    <div class="upload-header">
+        <div class="upload-icon">
+            <i class="fas fa-folder-open"></i>
+        </div>
+
+        <div>
+            <h2>Upload Dataset</h2>
+            <p>Select your CSV dataset for AI analysis</p>
+        </div>
+    </div>
+
+    <div class="dataset-box">
+
+        <h3>Selected Dataset</h3>
+
+        <div class="selected-file">
+
+            <i class="fas fa-file-csv"></i>
+
+            <span id="fileName">
+                No Dataset Selected
+            </span>
+
+        </div>
+
+        <div class="buttons-row">
+
+            <label for="dataset" class="browse-btn">
+                <i class="fas fa-folder-open"></i>
+                Browse File
+            </label>
+
+            <button
+                type="button"
+                class="clear-btn"
+                onclick="clearFile()">
+
+                <i class="fas fa-trash"></i>
+                Clear
+
+            </button>
+
+        </div>
+
+        <input
+            type="file"
+            id="dataset"
+            name="file"
+            accept=".csv"
+            hidden
+            required>
+
+        <div class="status">
+
+            <p>Status :
+                <span id="statusText">
+                    Waiting for Upload
+                </span>
+            </p>
+
+        </div>
+
+    </div>
+
+    <button class="analyze-btn" type="submit">
+
+        <i class="fas fa-rocket"></i>
+
+        Analyze Dataset
+
+    </button>
+
+</div>
+</from>
+
+        <!-- Features -->
+
+        <div class="section">
+
+            <h2>🚀 System Features</h2>
+
+            <div class="features-grid">
+
+                <div class="feature-card">
+
+                    <i class="fas fa-table"></i>
+
+                    <h3>Dataset Analysis</h3>
+
+                    <p>
+
+                        Detect rows, columns and missing values automatically.
+
+                    </p>
+
+                </div>
+
+                <div class="feature-card">
+
+                    <i class="fas fa-chart-line"></i>
+
+                    <h3>Model Comparison</h3>
+
+                    <p>
+
+                        Compare Decision Tree, Random Forest,
+                        KNN and SVM.
+
+                    </p>
+
+                </div>
+
+                <div class="feature-card">
+
+                    <i class="fas fa-robot"></i>
+
+                    <h3>AI Recommendation</h3>
+
+                    <p>
+
+                        Recommend the best algorithm based on accuracy.
+
+                    </p>
+
+                </div>
+
+                <div class="feature-card">
+
+                    <i class="fas fa-chart-pie"></i>
+
+                    <h3>Reports</h3>
+
+                    <p>
+
+                        View charts, rankings and AI insights.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Workflow -->
+
+        <div class="section">
+
+            <h2>⚙ System Workflow</h2>
+
+            <div class="workflow">
+
+                <div class="step">Upload CSV</div>
+
+                <div class="arrow">➜</div>
+
+                <div class="step">Analyze Dataset</div>
+
+                <div class="arrow">➜</div>
+
+                <div class="step">Train Models</div>
+
+                <div class="arrow">➜</div>
+
+                <div class="step">Compare Accuracy</div>
+
+                <div class="arrow">➜</div>
+
+                <div class="step">Recommend Best</div>
+
+            </div>
+
+        </div>
+
+        <!-- AI Insights -->
+
+        <div class="dashboard-card">
+
+            <h2>🤖 AI Insights</h2>
+
+            <div class="insights">
+
+                <div class="insight-item">
+
+                    📊 Supports CSV datasets.
+
+                </div>
+
+                <div class="insight-item">
+
+                    🤖 Compares multiple Machine Learning models.
+
+                </div>
+
+                <div class="insight-item">
+
+                    📈 Generates accuracy comparison.
+
+                </div>
+
+                <div class="insight-item">
+
+                    🏆 Automatically recommends the best algorithm.
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+</div>
+
+<!-- ================= LOADING SCREEN ================= -->
+
+<div id="loader" class="loader-container">
+
+    <div class="loader-box">
+
+        <div class="spinner"></div>
+
+        <h2>🤖 AI is analyzing your dataset...</h2>
+
+        <p id="loadingText">Initializing...</p>
+
+    </div>
+
+</div>
+
+<script>
+const form = document.querySelector("form");
+const loader = document.getElementById("loader");
+const loadingText = document.getElementById("loadingText");
+
+const messages = [
+"📂 Uploading Dataset...",
+"🔍 Reading CSV File...",
+"🧹 Cleaning Data...",
+"🌳 Training Decision Tree...",
+"🌲 Training Random Forest...",
+"🧠 Training KNN...",
+"⚡ Training SVM...",
+"📊 Comparing Accuracy...",
+"🤖 Generating AI Recommendation..."
+];
+
+let index = 0;
+
+if(form){
+
+form.addEventListener("submit", function(){
+
+    if(document.getElementById("dataset").files.length===0){
+        alert("Please select a CSV file.");
+        return;
+    }
+
+    loader.style.display="flex";
+
+    const interval=setInterval(function(){
+
+        loadingText.innerHTML=messages[index];
+
+        index++;
+
+        if(index>=messages.length){
+
+            clearInterval(interval);
+
+        }
+
+    },700);
+
+});
+
+}
+
+</script>
+
+<script>
+const toggle=document.getElementById("themeToggle");
+
+// Load saved theme
+if(localStorage.getItem("theme")=="light"){
+    document.body.classList.add("light");
+    toggle.innerHTML="☀️";
+}
+
+toggle.onclick=function(){
+
+    document.body.classList.toggle("light");
+
+    if(document.body.classList.contains("light")){
+        localStorage.setItem("theme","light");
+        toggle.innerHTML="☀️";
+    }
+    else{
+        localStorage.setItem("theme","dark");
+        toggle.innerHTML="🌙";
+    }
+
+}
+</script>
+
+<script>
+// Apply saved theme color
+const savedColor = localStorage.getItem("themeColor");
+
+if(savedColor){
+    document.documentElement.style.setProperty("--primary-color", savedColor);
+}
+
+// Apply saved dark/light mode
+const savedTheme = localStorage.getItem("theme");
+
+if(savedTheme === "light"){
+    document.body.classList.add("light");
+}
+</script>
+
+<script>
+
+const fileInput=document.getElementById("dataset");
+
+const fileName=document.getElementById("fileName");
+
+const status=document.getElementById("statusText");
+
+fileInput.addEventListener("change",function(){
+
+    if(this.files.length>0){
+
+        fileName.innerHTML=this.files[0].name;
+
+        status.innerHTML="Ready for Analysis";
+
+        status.style.color="green";
+
+    }
+
+});
+
+function clearFile(){
+
+    fileInput.value="";
+
+    fileName.innerHTML="No Dataset Selected";
+
+    status.innerHTML="Waiting for Upload";
+
+    status.style.color="#ff9800";
+
+}
+
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Algorithm Recommendation System</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/home.css') }}">
+
+    <link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+<nav class="navbar">
+
+    <div class="logo">
+
+        <i class="fas fa-brain"></i>
+
+        AI Recommendation
+
+    </div>
+
+    <ul>
+
+        <li><a href="#">Home</a></li>
+
+        <li><a href="#features">Features</a></li>
+
+        <li><a href="#workflow">Workflow</a></li>
+
+        <li><a href="#technology">Technology</a></li>
+
+    </ul>
+
+    <button id="themeToggle" class="theme-toggle">
+    🌙
+</button>
+
+</nav>
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+<div class="hero-left">
+
+<div class="tag">
+
+✨ Artificial Intelligence & Machine Learning
+
+</div>
+
+<h1>
+
+Find the Best
+
+<span>Machine Learning</span>
+
+Algorithm for Your Dataset
+
+</h1>
+
+<p>
+
+Upload your dataset and let Artificial Intelligence
+compare multiple Machine Learning algorithms like
+Decision Tree, Random Forest, KNN and SVM.
+
+The system automatically recommends the best
+algorithm based on prediction accuracy.
+
+</p>
+
+<div class="hero-buttons">
+
+<a href="/dashboard">
+
+<button class="primary-btn">
+
+🚀 Launch Dashboard
+
+</button>
+
+</a>
+
+<a href="#features">
+
+<button class="secondary-btn">
+
+Learn More
+
+</button>
+
+</a>
+
+</div>
+
+</div>
+
+<div class="hero-right">
+
+<div class="dashboard-card">
+
+<div class="card-header">
+
+<div class="circle red"></div>
+
+<div class="circle yellow"></div>
+
+<div class="circle green"></div>
+
+</div>
+
+<div class="chart-box">
+
+<h3>
+
+📊 Accuracy Comparison
+
+</h3>
+
+<div class="bar">
+
+<span style="width:95%"></span>
+
+</div>
+
+<p>Random Forest - 95%</p>
+
+<div class="bar">
+
+<span style="width:90%"></span>
+
+</div>
+
+<p>SVM - 90%</p>
+
+<div class="bar">
+
+<span style="width:87%"></span>
+
+</div>
+
+<p>Decision Tree - 87%</p>
+
+<div class="bar">
+
+<span style="width:83%"></span>
+
+</div>
+
+<p>KNN - 83%</p>
+
+</div>
+
+<div class="recommend">
+
+<h2>
+
+🏆 AI Recommendation
+
+</h2>
+
+<h1>
+
+Random Forest
+
+</h1>
+
+<p>
+
+Highest Accuracy
+
+Fast Prediction
+
+Robust Performance
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= STATS ================= -->
+
+<section class="stats">
+
+<div class="stat-card">
+
+<h1>4+</h1>
+
+<p>Algorithms</p>
+
+</div>
+
+<div class="stat-card">
+
+<h1>100%</h1>
+
+<p>Automation</p>
+
+</div>
+
+<div class="stat-card">
+
+<h1>CSV</h1>
+
+<p>Dataset Support</p>
+
+</div>
+
+<div class="stat-card">
+
+<h1>AI</h1>
+
+<p>Recommendation</p>
+
+</div>
+
+</section>
+
+
+<!-- ================= FEATURES ================= -->
+
+<section class="features-section" id="features">
+
+    <h2 class="section-title">Why Choose Our System?</h2>
+
+    <div class="features-grid">
+
+        <div class="feature-card">
+            <i class="fas fa-database"></i>
+            <h3>Dataset Analysis</h3>
+            <p>
+                Analyze CSV datasets instantly by detecting rows, columns,
+                missing values and target labels.
+            </p>
+        </div>
+
+        <div class="feature-card">
+            <i class="fas fa-chart-line"></i>
+            <h3>Model Comparison</h3>
+            <p>
+                Compare Decision Tree, Random Forest,
+                KNN and SVM using prediction accuracy.
+            </p>
+        </div>
+
+        <div class="feature-card">
+            <i class="fas fa-robot"></i>
+            <h3>AI Recommendation</h3>
+            <p>
+                Automatically recommends the most suitable
+                algorithm for the uploaded dataset.
+            </p>
+        </div>
+
+        <div class="feature-card">
+            <i class="fas fa-chart-pie"></i>
+            <h3>Interactive Dashboard</h3>
+            <p>
+                Beautiful dashboard with charts,
+                rankings and AI insights.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= WORKFLOW ================= -->
+
+<section class="workflow-section" id="workflow">
+
+    <h2 class="section-title">System Workflow</h2>
+
+    <div class="workflow">
+
+        <div class="step">
+            <i class="fas fa-upload"></i>
+            <h3>Upload</h3>
+            <p>Select CSV Dataset</p>
+        </div>
+
+        <div class="arrow">
+            <i class="fas fa-arrow-right"></i>
+        </div>
+
+        <div class="step">
+            <i class="fas fa-search"></i>
+            <h3>Analyze</h3>
+            <p>Dataset Analysis</p>
+        </div>
+
+        <div class="arrow">
+            <i class="fas fa-arrow-right"></i>
+        </div>
+
+        <div class="step">
+            <i class="fas fa-brain"></i>
+            <h3>Train Models</h3>
+            <p>Compare Algorithms</p>
+        </div>
+
+        <div class="arrow">
+            <i class="fas fa-arrow-right"></i>
+        </div>
+
+        <div class="step">
+            <i class="fas fa-trophy"></i>
+            <h3>Recommend</h3>
+            <p>Best Algorithm</p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= TECHNOLOGY ================= -->
+
+<section class="technology-section" id="technology">
+
+    <h2 class="section-title">Technology Stack</h2>
+
+    <div class="tech-grid">
+
+        <div class="tech-card">🐍 Python</div>
+
+        <div class="tech-card">⚡ Flask</div>
+
+        <div class="tech-card">📊 Pandas</div>
+
+        <div class="tech-card">🤖 Scikit-Learn</div>
+
+        <div class="tech-card">🌐 HTML5</div>
+
+        <div class="tech-card">🎨 CSS3</div>
+
+        <div class="tech-card">📈 Chart.js</div>
+
+        <div class="tech-card">💾 CSV Dataset</div>
+
+    </div>
+
+</section>
+
+<!-- ================= ABOUT ================= -->
+
+<section class="about-section">
+
+    <div class="about-card">
+
+        <h2>About the Project</h2>
+
+        <p>
+
+            AI Algorithm Recommendation System is a Machine Learning
+            web application developed using Flask, Python,
+            Pandas and Scikit-Learn.
+
+            The application analyzes the uploaded dataset,
+            trains multiple Machine Learning models,
+            compares their performance and recommends
+            the best algorithm automatically.
+
+        </p>
+
+    </div>
+
+</section>
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <h2>
+        <i class="fas fa-brain"></i>
+        AI Algorithm Recommendation System
+    </h2>
+
+    <p>
+        Artificial Intelligence • Machine Learning • Data Analytics
+    </p>
+
+    <p>
+        Developed using Flask, Python & Scikit-Learn
+    </p>
+
+    <hr>
+
+    <p>
+        © 2025 Final Year Project | All Rights Reserved
+    </p>
+
+</footer>
+
+<script>
+const toggle=document.getElementById("themeToggle");
+
+// Load saved theme
+if(localStorage.getItem("theme")=="light"){
+    document.body.classList.add("light");
+    toggle.innerHTML="☀️";
+}
+
+toggle.onclick=function(){
+
+    document.body.classList.toggle("light");
+
+    if(document.body.classList.contains("light")){
+        localStorage.setItem("theme","light");
+        toggle.innerHTML="☀️";
+    }
+    else{
+        localStorage.setItem("theme","dark");
+        toggle.innerHTML="🌙";
+    }
+
+}
+</script>
+
+<script>
+// Apply saved theme color
+const savedColor = localStorage.getItem("themeColor");
+
+if(savedColor){
+    document.documentElement.style.setProperty("--primary-color", savedColor);
+}
+
+// Apply saved dark/light mode
+const savedTheme = localStorage.getItem("theme");
+
+if(savedTheme === "light"){
+    document.body.classList.add("light");
+}
+</script>
+
+</body>
+
+</html>
